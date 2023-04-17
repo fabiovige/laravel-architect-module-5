@@ -1,0 +1,15 @@
+{
+    "name": "fabiovige/modulo-5",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Fabiovige\\Modulo5\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fabio Vige"
+        }
+    ],
+    "require": {}
+}
