@@ -2,16 +2,14 @@
 
 namespace Fabiovige\Modulo5\Services;
 
-use Fabiovige\Modulo5\Providers\StripePaymentProvider;
-use Fabiovige\Modulo5\Utils\Http;
+use Fabiovige\Modulo5\Providers\Interfaces\PaymentProviderContract;
 
 class Checkout
 {
     public function __construct(private string $email, private int $amount){}
 
-    public function handle()
+    public function handle(PaymentProviderContract $paymentProvider)
     {
-        $stripeProvider = new StripePaymentProvider(new Http);
-        return $stripeProvider->charge($this->email, $this->amount);
+        return $paymentProvider->charge($this->email, $this->amount);
     }
 }
